@@ -70,8 +70,8 @@ const Phi = Φ
 
 if abspath(PROGRAM_FILE) == @__FILE__
     x = range(0, 3, 1000)
-    plot(x, Φ.(x), label=L"\Phi", lc=:black, lw=2, legend=false, xguidefontsize=14, yguidefontsize=14)
+    plot(x, Φ.(x), label=L"\Phi", lc=:black, lw=2, legend=false, xguidefontsize=14, yguidefontsize=14, dpi=300)
     xlabel!(L"x")
     ylabel!(L"\Phi(x)")
-    savefig("plot.pdf")
+    savefig("imgs/plot.png")  # change to pdf if needed
 end
