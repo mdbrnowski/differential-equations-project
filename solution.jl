@@ -1,10 +1,15 @@
 using SparseArrays
-using LinearAlgebra
 using LaTeXStrings
 using Plots
 include("integration.jl")
 
-const n::Integer = 100
+if length(ARGS) == 0
+    @info "No argument `n` passed - default is 100"
+    const n::Integer = 100
+else
+    const n::Integer = parse(Int64, ARGS[1])
+end
+
 # const G::Real = 6.6743015e-11
 const G::Real = 1
 
@@ -15,18 +20,18 @@ const G::Real = 1
 x̂(i::Integer) = 3 * i / n
 
 function e(i::Integer, x::Real)::Real
-    if x̂(i - 1) < x < x̂(i)
+    if x̂(i - 1) <= x <= x̂(i)
         return (x - x̂(i - 1)) / (3 / n)
-    elseif (x̂(i) < x < x̂(i + 1))
+    elseif (x̂(i) <= x <= x̂(i + 1))
         return (x̂(i + 1) - x) / (3 / n)
     end
     return 0
 end
 
 function e′(i::Integer, x::Real)::Real
-    if x̂(i - 1) < x < x̂(i)
+    if x̂(i - 1) <= x <= x̂(i)
         return 1 / (3 / n)
-    elseif (x̂(i) < x < x̂(i + 1))
+    elseif (x̂(i) <= x <= x̂(i + 1))
         return -1 / (3 / n)
     end
     return 0
