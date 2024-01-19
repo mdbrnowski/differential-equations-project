@@ -1,10 +1,10 @@
 # differential-equations-project
 
-Project for the Differential Equations course at AGH.
+Project for the Differential Equations course at AGH University.
 
 ## Task
 
-Using the finite element method (FEM), solve:
+Using the [finite element method](https://en.wikipedia.org/wiki/Finite_element_method) (FEM), solve:
 
 $$ \frac{d^2 \Phi(x)}{dx^2} = 4\pi G\rho(x) $$
 
